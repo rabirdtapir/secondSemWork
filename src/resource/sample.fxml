@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="380.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Pane layoutX="13.0" layoutY="74.0" prefHeight="291.0" prefWidth="559.0" style="-fx-background-color: #E0FFFF;">
+      <children>
+          <TextField id="nameText" fx:id="inputField" layoutX="307.0" layoutY="15.0" prefHeight="42.0" prefWidth="225.0" style="-fx-font-family: Unispace; -fx-font-size: 30;" />
+          <Label fx:id="label" layoutX="25.0" layoutY="14.0" prefHeight="51.0" prefWidth="282.0" style="-fx-font-family: Unispace; -fx-font-size: 30;" styleClass="color: black;" text="Enter your name" />
+         <Button fx:id="JoinGameButton" layoutX="356.0" layoutY="206.0" mnemonicParsing="false" onAction="#joinGameAction" prefHeight="70.0" prefWidth="176.0" style="-fx-background-radius: 32; -fx-border-radius: 32; -fx-background-color: #008B8B;">
+            <graphic>
+               <Label prefHeight="40.0" prefWidth="170.0" style="-fx-font-family: Unispace; -fx-font-size: 20;" styleClass="color: white;" text="  Join game" textFill="WHITE">
+                  <font>
+                     <Font size="30.0" />
+                  </font>
+               </Label>
+            </graphic>
+         </Button>
+         <Button fx:id="CreateGameButton" onAction="#createGameAction" layoutX="28.0" layoutY="206.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="176.0" style="-fx-background-radius: 32; -fx-border-radius: 32; -fx-background-color: #008B8B;">
+            <graphic>
+               <Label prefHeight="39.0" prefWidth="160.0" style="-fx-font-family: Unispace; -fx-font-size: 20;" styleClass="color: white;" text=" Create game" textFill="WHITE">
+                  <font>
+                     <Font size="30.0" />
+                  </font>
+               </Label>
+            </graphic>
+         </Button>
+      </children>
+   </Pane>
+   <AnchorPane prefHeight="60.0" prefWidth="585.0" style="-fx-background-color: #008B8B;">
+      <children>
+         <Text fill="WHITE" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: Unispace;" text="Castle Defenders" wrappingWidth="271.1999969482422">
+            <font>
+               <Font name="SansSerif Regular" size="26.0" />
+            </font>
+         </Text>
+      </children>
+   </AnchorPane>
+</AnchorPane>
