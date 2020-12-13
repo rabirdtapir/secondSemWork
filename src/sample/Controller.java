@@ -44,10 +44,16 @@ public class Controller implements Initializable {
             if (this.inputField.getText().equals("")) {
                 noneName();
             } else {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../resource/joinGame.fxml"));
+                Parent root = loader.load();
+                JoinGameController joinGameController = loader.getController();
+                Stage primaryStage = new Stage();
+                primaryStage.setScene(new Scene(root, 585, 380));
+                primaryStage.show();
 
             }
 
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | IOException e) {
 
 
         }
@@ -57,19 +63,22 @@ public class Controller implements Initializable {
     @FXML
     private void createGameAction(ActionEvent actionEvent) throws IOException {
         try {
-            if(this.inputField.getText().equals("")) {
+            String text = this.inputField.getText();
+            if(text.equals("")) {
                 noneName();
             } else {
-                FXMLLoader loader = FXMLLoader.load(getClass().getResource("../resource/createGame.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../resource/createGame.fxml"));
                 inputField.getScene().getWindow().hide();
                 Parent newView = loader.load();
                 CreateGameController createGameController = loader.getController();
-                createGameController.showInformation(inputField.getText());
+                System.out.println(text);
+                createGameController.setNameField(text);
                 Stage primaryStage = new Stage();
                 primaryStage.setScene(new Scene(newView, 585, 380));
                 primaryStage.show();
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
