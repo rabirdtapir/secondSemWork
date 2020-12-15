@@ -7,7 +7,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Sprites extends Rectangle {
     boolean dead = false;
-    final String type;
+    String type;
 
     public Sprites(double x, double y, double width, double height, String type, Color color) {
         super(width, height, color);
@@ -24,6 +24,9 @@ public class Sprites extends Rectangle {
         setTranslateY(y);
     }
 
+    public Sprites(double width, double height) {
+        super(width, height);
+    }
 
 
     void moveUp() {

@@ -1,5 +1,7 @@
 package Game.code;
 
+import client.GameClient;
+import client.GameServer;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.fxml.Initializable;
@@ -12,6 +14,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -25,13 +32,26 @@ public class GameController extends Application {
     private int height = 800;
     private double t = 0;
     private int timer = 0;
+    private boolean isEnd;
     URL player1 = getClass().getResource("firstPlayer.png");
     URL enemy = getClass().getResource("enemy.png");
 //    String enemy = getClass().getResource("Game/lib/enemy.png").toExternalForm();
 
+    private Socket socket;
+    private ServerSocket serverSocket;
+
+    private DataOutputStream dos;
+    private DataInputStream dis;
+    private Thread thread;
+
+    public void run() {
+
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
+
 
     private Parent createContent() {
         root.setPrefSize(width, height);
@@ -101,13 +121,16 @@ public class GameController extends Application {
                     }
                     break;
 
-
             }
         });
         root.getChildren().removeIf(n -> {
             Sprites s = (Sprites) n;
             return s.dead;
         });
+
+        if (player.dead) {
+            isEnd = true;
+        }
     }
 
     private void shoot(Sprites player) {

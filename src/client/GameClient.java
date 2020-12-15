@@ -1,36 +1,26 @@
-package sample;
+package client;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import Game.code.GameController;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
-import java.net.URL;
 import java.net.UnknownHostException;
-import java.util.ResourceBundle;
 
-public class JoinGameController implements Initializable {
+public class GameClient {
 
-    @FXML
-    private Label label;
-    @FXML
-    private TextField hostName;
+    /**
+     *
+     * @param args
+     * @throws InterruptedException
+     */
+  /*  public static void main(String[] args) throws InterruptedException {
 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    @FXML
-    private void JoinGameAction(ActionEvent actionEvent) {
-        int host = Integer.parseInt(getPort());
-        try(Socket socket = new Socket("localhost", host);
+// запускаем подключение сокета по известным координатам и нициализируем приём сообщений с консоли клиента
+        try(Socket socket = new Socket("localhost", 3345);
             BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
             DataOutputStream oos = new DataOutputStream(socket.getOutputStream());
             DataInputStream ois = new DataInputStream(socket.getInputStream()); )
@@ -93,15 +83,14 @@ public class JoinGameController implements Initializable {
 // на выходе из цикла общения закрываем свои ресурсы
             System.out.println("Closing connections & channels on clentSide - DONE.");
 
-        } catch (InterruptedException | IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Wrong host");
-            alert.setContentText("Enter correct host");
-            alert.showAndWait();
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 
-    public String getPort() {
-        return hostName.getText();
-    }
+   */
 }
